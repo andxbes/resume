@@ -1,0 +1,46 @@
+{
+  "name": "wp-laravel-mix-resume",
+  "version": "1.0.1",
+  "description": "",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "webpack": "cross-env NODE_ENV=development webpack --progress  --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "dev": "cross-env NODE_ENV=development webpack --watch --progress  --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hmr": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "prod": "cross-env NODE_ENV=production webpack --progress  --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "test": "cross-env nyc ava --verbose --serial",
+    "posttest": "cross-env nyc report --reporter=html"
+  },
+  "author": "andxbes <andxbes@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@alpinejs/intersect": "^3.7.0",
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/line-clamp": "^0.3.0",
+    "@tailwindcss/typography": "^0.5.0",
+    "alpinejs": "^3.6.1",
+    "http2": "^3.3.7",
+    "mini-css-extract-plugin": "^2.4.5",
+    "postcss-import": "^14.0.2",
+    "postcss-loader": "^6.2.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.27.7",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "cross-env": "^5.2.0",
+    "fs": "0.0.1-security",
+    "glob-all": "^3.2.1",
+    "laravel-mix": "^6.0.39",
+    "laravel-mix-tailwind": "^0.1.2",
+    "laravel-mix-versionhash": "^2.0.1",
+    "resolve-url-loader": "^4.0.0",
+    "sass": "^1.44.0",
+    "sass-loader": "^12.4.0",
+    "tailwindcss": "^3.0.16",
+    "vue-template-compiler": "^2.6.12"
+  }
+}
