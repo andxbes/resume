@@ -12,7 +12,7 @@ if (typeof window !== 'undefined') {
     window.addEventListener('DOMContentLoaded', () => {
         const _load = Promise.resolve( Alpine.start());
         _load.then(() => {
-            // console.info(started alpine);
+            console.info('started alpine');
         });
     })
 

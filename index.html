@@ -28,14 +28,201 @@
         "telephone": "+38 (091) 900 65 15",
         "url": "https://andxbes.github.io/resume/"
       }
-      </script>
+    </script>
   </head>
-  <body class="px-10">
+  <body
+    class="px-10"
+    x-data="{'m_contacts': false, 
+    'contacts': {
+      'tel':{
+        'title': 'C',
+        'link': 'tel:+380919006515',
+        'text': '+38 091 900 65 15'
+      },
+      'email':{
+        'title': 'E',
+        'link': 'mailto:andxbes@gmail.com',
+        'text': 'andxbes@gmail.com'
+      }
+    },
+    'skills':[
+      'JavaScript',
+      'PHP',
+      'Java',
+      'Docker',
+      'GIT',
+      'WordPress',
+      'Tailwind',
+      'Bootstrap',
+      'Foundation',
+      'Alpine.js',
+      'jQuery',
+      'HTML5',
+      'CSS',
+      'SCSS',
+      'WebPack'
+    ],
+    'soft_skills':[
+      'Teamwork'
+    ]
+    }"
+  >
     <main
-      class="container flex min-h-screen m-auto my-10 resume max-w-screen-desktop"
+      class="container relative flex min-h-screen m-auto my-10 resume max-w-screen-desktop"
     >
+      <button
+        class="absolute inline-block p-2 bg-[#1E2939] rounded desktop:hidden top-4 left-4 text-gray-50"
+        aria-label="contacts"
+        title="contacts"
+        @click="m_contacts=true"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-6 h-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+      <div
+        @keydown.window.escape="m_contacts = false"
+        x-show="m_contacts"
+        class="relative z-10"
+        aria-labelledby="slide-over-title"
+        x-ref="dialog"
+        aria-modal="true"
+      >
+        <div
+          x-show="m_contacts"
+          x-transition:enter="ease-in-out duration-500"
+          x-transition:enter-start="opacity-0"
+          x-transition:enter-end="opacity-100"
+          x-transition:leave="ease-in-out duration-500"
+          x-transition:leave-start="opacity-100"
+          x-transition:leave-end="opacity-0"
+          x-description="Background backdrop, show/hide based on slide-over state."
+          class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75"
+        ></div>
+
+        <div class="fixed inset-0 overflow-hidden">
+          <div class="absolute inset-0 overflow-hidden">
+            <div
+              class="fixed inset-y-0 right-0 flex max-w-full pl-10 pointer-events-none"
+            >
+              <div
+                x-show="m_contacts"
+                x-transition:enter="transform transition ease-in-out duration-500 sm:duration-700"
+                x-transition:enter-start="translate-x-full"
+                x-transition:enter-end="translate-x-0"
+                x-transition:leave="transform transition ease-in-out duration-500 sm:duration-700"
+                x-transition:leave-start="translate-x-0"
+                x-transition:leave-end="translate-x-full"
+                class="relative w-screen max-w-md pointer-events-auto"
+                x-description="Slide-over panel, show/hide based on slide-over state."
+                @click.away="m_contacts = false"
+              >
+                <div
+                  x-show="m_contacts"
+                  x-transition:enter="ease-in-out duration-500"
+                  x-transition:enter-start="opacity-0"
+                  x-transition:enter-end="opacity-100"
+                  x-transition:leave="ease-in-out duration-500"
+                  x-transition:leave-start="opacity-100"
+                  x-transition:leave-end="opacity-0"
+                  x-description="Close button, show/hide based on slide-over state."
+                  class="absolute top-0 left-0 flex pt-4 pr-2 -ml-8 sm:-ml-10 sm:pr-4"
+                >
+                  <button
+                    type="button"
+                    class="text-gray-300 rounded-md hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                    @click="m_contacts = false"
+                  >
+                    <span class="sr-only">Close panel</span>
+                    <svg
+                      class="w-6 h-6"
+                      x-description="Heroicon name: outline/x-mark"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18L18 6M6 6l12 12"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+
+                <div
+                  class="flex flex-col h-full py-6 overflow-y-scroll shadow-xl bg-[#1E2939] text-white"
+                  id="mobile-sidebar"
+                >
+                  <a
+                    target="_blank"
+                    href="https://www.figma.com/file/QgAJ8XOaCHzXmbM8YP9ZnV/Resume-(Copy)?t=zGAUpE0fPuwyFtki-0"
+                  >
+                    <img
+                      class="object-contain w-full h-auto py-10 shrink-0"
+                      src="./assets/img/photo.jpg"
+                      alt="photo"
+                      loading="lazy"
+                      width="370"
+                      height="354"
+                    />
+                  </a>
+                  <div class="px-10 py-13">
+                    <div class="contacts">
+                      <h2>Contacts</h2>
+                      <address>
+                        <template x-for="(data, key) in contacts">
+                          <p
+                            class="contacts__item"
+                            :class="'contacts__item--' + key"
+                          >
+                            <b x-text="data.title+':'"></b
+                            ><a :href="data.link" x-text="data.text"></a>
+                          </p>
+                        </template>
+                      </address>
+                    </div>
+
+                    <div class="skills">
+                      <h2>Tech Skills</h2>
+                      <ul>
+                        <template x-for="skill in skills">
+                          <li><span x-text="skill"></span></li>
+                        </template>
+                      </ul>
+                    </div>
+
+                    <div class="skills">
+                      <h2>Soft Skills</h2>
+                      <ul>
+                        <template x-for="s_skill in soft_skills">
+                          <li><span x-text="s_skill"></span></li>
+                        </template>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <article class="order-2 w-auto px-24 py-24 grow">
-        <div class="about-me w-[55%] mb-10">
+        <div class="about-me desktop:w-[55%] mb-10">
           <p class=""><b>Front-End Developer</b></p>
           <h1>Anton Chornyi</h1>
           <p>
@@ -45,7 +232,7 @@
             accumsan lacus vel facilisis.
           </p>
         </div>
-        <section class="w-8/12 mb-12 projects">
+        <section class="mb-12 desktop:w-8/12 projects">
           <h2>Projects</h2>
           <ol class="">
             <li>
@@ -167,7 +354,10 @@
           </p>
         </section>
       </article>
-      <aside class="w-[370px] order-1 shrink bg-[#1E2939] text-white">
+      <aside
+        id="desktop-sidebar"
+        class="hidden desktop:block w-[370px] order-1 shrink bg-[#1E2939] text-white"
+      >
         <a
           target="_blank"
           href="https://www.figma.com/file/QgAJ8XOaCHzXmbM8YP9ZnV/Resume-(Copy)?t=zGAUpE0fPuwyFtki-0"
@@ -176,6 +366,7 @@
             class="object-contain w-full h-auto py-10 shrink-0"
             src="./assets/img/photo.jpg"
             alt="photo"
+            loading="lazy"
             width="370"
             height="354"
           />
@@ -184,40 +375,35 @@
           <div class="contacts">
             <h2>Contacts</h2>
             <address>
-              <p class="contacts__item contacts__item--tel">
-                <b>C:</b><a href="tel:+380919006515">+1 111 111 11 11</a>
-              </p>
-              <p class="contacts__item">
-                <b>E:</b
-                ><a href="mailto:andxbes@gmail.com">chornyiav@gmail.com</a>
-              </p>
+              <template x-for="(data, key) in contacts">
+                <p class="contacts__item" :class="'contacts__item--' + key">
+                  <b x-text="data.title+':'"></b
+                  ><a :href="data.link" x-text="data.text"></a>
+                </p>
+              </template>
             </address>
           </div>
 
           <div class="skills">
             <h2>Tech Skills</h2>
             <ul>
-              <li><span>HTML5</span></li>
-              <li><span>CSS3</span></li>
-              <li><span>GIT</span></li>
-              <li><span>WebPack</span></li>
-              <li><span>JavaScript</span></li>
-              <li><span>React.js</span></li>
-              <li><span>Node.js</span></li>
+              <template x-for="skill in skills">
+                <li><span x-text="skill"></span></li>
+              </template>
             </ul>
           </div>
 
           <div class="skills">
             <h2>Soft Skills</h2>
             <ul>
-              <li><span>Scrum</span></li>
-              <li><span>Agile</span></li>
-              <li><span>GTD</span></li>
-              <li><span>Teamwork</span></li>
+              <template x-for="s_skill in soft_skills">
+                <li><span x-text="s_skill"></span></li>
+              </template>
             </ul>
           </div>
         </div>
       </aside>
     </main>
+    <script defer src="./build/js/app.js"></script>
   </body>
 </html>
