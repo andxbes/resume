@@ -31,7 +31,7 @@
     </script>
   </head>
   <body
-    class="px-10"
+    class="px-10 dark:bg-gray-700"
     x-data="{'m_contacts': false, 
     'contacts': {
       'tel':{
@@ -68,7 +68,7 @@
     }"
   >
     <main
-      class="container relative flex min-h-screen m-auto my-10 resume max-w-screen-desktop"
+      class="container relative flex min-h-screen m-auto my-10 resume max-w-screen-desktop dark:bg-gray-600 dark:text-white"
     >
       <button
         class="absolute inline-block p-2 bg-[#1E2939] rounded desktop:hidden top-4 left-4 text-gray-50"
@@ -94,6 +94,7 @@
       <div
         @keydown.window.escape="m_contacts = false"
         x-show="m_contacts"
+        x-cloak
         class="relative z-10"
         aria-labelledby="slide-over-title"
         x-ref="dialog"
@@ -281,9 +282,9 @@
           <h3>
             Front-End Developer <span class="text-[#FB6D3A]">Freelance</span>
           </h3>
-          <p class="mb-2 text-xs text-gray-400">
+          <span class="work-experience__period">
             September 2019 - up to now <b>|</b> Country
-          </p>
+          </span>
           <ul>
             <li>
               <p>
@@ -306,9 +307,9 @@
           </ul>
 
           <h3>Manager <span class="text-[#FB6D3A]">Mono New</span></h3>
-          <p class="mb-2 text-xs text-gray-400">
+          <span class="work-experience__period">
             March 2015 - October 2018 <b>|</b> Country
-          </p>
+          </span>
           <ul>
             <li>
               <p>
@@ -325,9 +326,9 @@
           </ul>
 
           <h3>Manager <span class="text-[#FB6D3A]">Mono LLC</span></h3>
-          <p class="mb-2 text-xs text-gray-400">
+          <span class="work-experience__period">
             June 2014 - February 2015 <b>|</b> Country
-          </p>
+          </span>
           <ul>
             <li>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -349,9 +350,9 @@
             ><br />
             Management
           </h3>
-          <p class="mb-2 text-xs text-gray-400">
+          <span class="work-experience__period">
             September 2009 - June 2014 | Country <b>|</b> Country
-          </p>
+          </span>
         </section>
       </article>
       <aside
