@@ -31,7 +31,7 @@
     </script>
   </head>
   <body
-    class="px-10 dark:bg-gray-700"
+    class="px-3 sm:px-10 dark:bg-gray-700"
     x-data="{'m_contacts': false, 
     'contacts': {
       'tel':{
@@ -68,10 +68,10 @@
     }"
   >
     <main
-      class="container relative flex min-h-screen m-auto my-10 resume max-w-screen-desktop dark:bg-gray-600 dark:text-white"
+      class="container relative flex min-h-screen m-auto my-3 sm:my-10 resume max-w-screen-desktop dark:bg-gray-600 dark:text-white"
     >
       <button
-        class="absolute inline-block p-2 bg-[#1E2939] rounded desktop:hidden top-4 left-4 text-gray-50"
+        class="absolute inline-block p-2 bg-[#1E2939] rounded desktop:hidden top-4 right-4 text-gray-50"
         aria-label="contacts"
         title="contacts"
         @click="m_contacts=true"
@@ -222,7 +222,7 @@
           </div>
         </div>
       </div>
-      <article class="order-2 w-auto px-24 py-24 grow">
+      <article class="order-2 w-auto  p-6  md:p-24  grow">
         <div class="about-me desktop:w-[55%] mb-10">
           <p class=""><b>Front-End Developer</b></p>
           <h1>Anton Chornyi</h1>

@@ -26,7 +26,14 @@ p{
 
 .resume{
   box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.1);
+  hyphens: auto;
+  
 }
+
+html,body{
+  @apply max-w-full overflow-x-clip;
+}
+
 
 .contacts {
   @apply mb-10;
@@ -62,14 +69,18 @@ p{
 }
 
 .projects{
+  @apply max-w-full overflow-hidden;
   &__item{
-    @apply flex;
+    @apply flex flex-wrap w-full;
+    &> *{
+      
+    }
   }
   &__delimeter{
-    @apply flex  grow border-b border-dashed mb-1 border-gray-300  ;
+    @apply inline-flex  grow border-b border-dashed mb-1 mx-1 min-w-[10px] border-gray-300  ;
   }
   &__skills{
-    @apply grow-0 font-normal dark:text-blue-400;
+    @apply grow-0 font-normal dark:text-blue-400 mr-0 ml-auto ;
   }
   ol{
     @apply list-decimal font-bold pl-5;
